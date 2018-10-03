@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class barrier : MonoBehaviour {
 
-public Rigidbody2D m_string;
 void OnTriggerEnter2D(Collider2D co) {
     if (co.name == "character")
     {

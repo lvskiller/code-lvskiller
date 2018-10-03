@@ -55,6 +55,8 @@
   <ItemGroup>
      <Compile Include="Assets\scripts\barrier.cs" />
      <Compile Include="Assets\scripts\character.cs" />
+     <Compile Include="Assets\scripts\diamong.cs" />
+     <Compile Include="Assets\scripts\ladder.cs" />
      <Compile Include="Assets\scripts\seting.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Users/31311/Desktop/celeste/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>

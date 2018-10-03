@@ -16,6 +16,8 @@
         <e p="scripts" t="Include">
           <e p="barrier.cs" t="Include" />
           <e p="character.cs" t="Include" />
+          <e p="diamong.cs" t="Include" />
+          <e p="ladder.cs" t="Include" />
           <e p="seting.cs" t="Include" />
         </e>
       </e>

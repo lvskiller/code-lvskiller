@@ -6,12 +6,9 @@ public class seting : MonoBehaviour
 {
 
 	private bool paused=false;
-	// Use this for initialization
 	void Start () {
 		
 	}
-	
-	// Update is called once per frame
 	void Update () {
 		if (Input.GetKey(KeyCode.P))
 			paused =!paused;

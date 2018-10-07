@@ -34,10 +34,12 @@ public class option : MonoBehaviour
 				transform.position = pos2.position;
 			}
 	
-			if (choice == 1 && Input.GetKeyDown("c"))
+			if (choice == 1 && Input.GetKeyDown("c"))//开始游戏
 			{
-				SceneManager.LoadScene(1);
+				SceneManager.LoadScene(2);
 			}
+		   if (choice == 2 && Input.GetKeyDown("c"))//退出
+			   Application.Quit();
 	}
 	
 	

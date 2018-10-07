@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>第零天的工作</title>
+</head>
+<body>
+<div id="wmd-preview" class="wmd-preview"><div class="md-section-divider"></div><div class="md-section-divider"></div><h1 data-anchor-id="d00p" id="第零天的工作">第零天的工作</h1><div class="md-section-divider"></div><h2 data-anchor-id="65we" id="开始github"><strong>开始github</strong></h2><blockquote data-anchor-id="apqe" class="black-blockquote">
+  <ul>
+  <li>github搭建</li>
+  <li>git登不上，说邮箱和用户名没有，后直接在config里写入</li>
+  <li>然后传文件被拒绝，遍寻无果</li>
+  <li>直接clone下网上文件，git push -f origin master再强行上传</li>
+  </ul>
+</blockquote><p data-anchor-id="avvx">===========</p><div class="md-section-divider"></div><h1 data-anchor-id="ugud" id="第一天的工作">第一天的工作</h1><div class="md-section-divider"></div><h2 data-anchor-id="43jz" id="找素材"><strong>找素材</strong></h2><blockquote data-anchor-id="s518" class="black-blockquote">
+  <ol>
+  <li>找素材</li>
+  <li>在线抠图软件去掉白色背景</li>
+  </ol>
+</blockquote><div class="md-section-divider"></div><h2 data-anchor-id="0c25" id="搭建场景开始编写"><strong>搭建场景开始编写</strong></h2><blockquote data-anchor-id="3sjs" class="black-blockquote">
+  <p>1.搭建场景。 <br>
+   2.完成左右移动及跳的代码</p>
+</blockquote><div class="md-section-divider"></div><h2 data-anchor-id="rlye" id="bug及解决"><strong>bug及解决</strong></h2><blockquote data-anchor-id="s9i1" class="black-blockquote">
+  <ul>
+  <li>rigidbody在掉下去时候图片倒了，后锁定x轴解决</li>
+  <li>但在冲刺时不能冲刺，取消锁定。且冲刺时会飞走，加入lineardrag解决。翻倒问题暂定。</li>
+  <li>翻倒是由于有力，所以设立速度=0</li>
+  <li>过于麻烦，后在rigidbody锁定rotation完成翻倒问题解决</li>
+  </ul>
+</blockquote><p data-anchor-id="fqdq">==========</p><div class="md-section-divider"></div><h1 data-anchor-id="cvo3" id="第二天的工作"><strong>第二天的工作</strong></h1><div class="md-section-divider"></div><h2 data-anchor-id="u6jr" id="设计冲刺"><strong>设计冲刺</strong></h2><blockquote data-anchor-id="i85q" class="black-blockquote">
+  <p>1.开始用addforce实现，觉得总是出现问题 <br>
+  2.改用velocity设计 <br>
+  3.冲刺时间太短，加了一个延迟 <br>
+  4.考虑到只有落地才可以重新冲刺，在oncollisionenter加入了判断方向</p>
+</blockquote><div class="md-section-divider"></div><h2 data-anchor-id="5d5z" id="设计死亡"><strong>设计死亡</strong></h2><blockquote data-anchor-id="b7xi" class="black-blockquote">
+  <p>1.完成了尖刺的设计 <br>
+  2.并完成了碰刺死亡和重来的脚本， <br>
+  3.我也有此想到可在超出界的地方设置刺以达到越界死亡的效果，暂定 <br>
+  4.不暂定了，就算在越界处放置刺达到效果</p>
+</blockquote><div class="md-section-divider"></div><h2 data-anchor-id="ckib" id="设计爬墙"><strong>设计爬墙</strong></h2><blockquote data-anchor-id="pf8u" class="black-blockquote">
+  <p>1.设计爬墙 <br>
+  2.但是爬墙时还是下滑，原来是它最开始有个向下速度加一个velocity=0解决 <br>
+  3.爬墙一段时间会掉落，设计一个cnttime完成计时 <br>
+  4.最开始碰到墙会有一个停留，加一个判断解决。</p>
+</blockquote><div class="md-section-divider"></div><h2 data-anchor-id="03jp" id="bug及解决-1"><strong>bug及解决</strong></h2><blockquote data-anchor-id="srhh" class="black-blockquote">
+  <p>1.左右人物没有转向，(未解决) <br>
+  2.其此跳跃等与爬墙联系尚未构筑，</p>
+</blockquote><div class="md-section-divider"></div><pre class="prettyprint linenums prettyprinted" data-anchor-id="rddg"><ol class="linenums"><li class="L0"><code class="language-c#"><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">clo</span><span class="pun">.</span><span class="pln">contacts</span><span class="pun">[</span><span class="lit">0</span><span class="pun">].</span><span class="pln">normal</span><span class="pun">.</span><span class="pln">x </span><span class="pun">==</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">)</span><span class="com">//左边碰撞</span></code></li><li class="L1"><code class="language-c#"><span class="pln">        </span><span class="pun">{</span></code></li><li class="L2"><code class="language-c#"><span class="pln">            m_rigidbody</span><span class="pun">.</span><span class="pln">gravityScale </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></code></li><li class="L3"><code class="language-c#"><span class="pln">            </span><span class="typ">StartCoroutine</span><span class="pun">(</span><span class="typ">DelayToInvoke</span><span class="pun">.</span><span class="typ">DelayToInvokeDo</span><span class="pun">(()</span><span class="pln"> </span><span class="pun">=&gt;</span></code></li><li class="L4"><code class="language-c#"><span class="pln">            </span><span class="pun">{</span></code></li><li class="L5"><code class="language-c#"><span class="pln">                climbing</span><span class="pun">();</span></code></li><li class="L6"><code class="language-c#"><span class="pln">            </span><span class="pun">},</span><span class="pln"> </span><span class="lit">0.2f</span><span class="pun">));</span></code></li><li class="L7"><code class="language-c#"><span class="pln">        </span><span class="pun">}</span></code></li></ol></pre><blockquote data-anchor-id="a465" class="black-blockquote">
+  <p>出现问题，因为for直接走完不等待 <br>
+  改为</p>
+</blockquote><div class="md-section-divider"></div><pre class="prettyprint linenums prettyprinted" data-anchor-id="4k3x"><ol class="linenums"><li class="L0"><code class="language-c#"><span class="kwd">private</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> </span><span class="typ">Update</span><span class="pun">()</span></code></li><li class="L1"><code class="language-c#"><span class="pln">    </span><span class="pun">{</span></code></li><li class="L2"><code class="language-c#"><span class="pln">        </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="typ">Input</span><span class="pun">.</span><span class="typ">GetKey</span><span class="pun">(</span><span class="str">"z"</span><span class="pun">)&amp;&amp;</span><span class="pln">flag_climbing</span><span class="pun">)</span></code></li><li class="L3"><code class="language-c#"><span class="pln">        </span><span class="pun">{</span></code></li><li class="L4"><code class="language-c#"><span class="pln">            m_rigidbody</span><span class="pun">.</span><span class="pln">gravityScale </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></code></li><li class="L5"><code class="language-c#"><span class="pln">            </span><span class="kwd">float</span><span class="pln"> c </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Input</span><span class="pun">.</span><span class="typ">GetAxisRaw</span><span class="pun">(</span><span class="str">"Vertical"</span><span class="pun">);</span></code></li><li class="L6"><code class="language-c#"><span class="pln">            transform</span><span class="pun">.</span><span class="typ">Translate</span><span class="pun">(</span><span class="typ">Vector2</span><span class="pun">.</span><span class="pln">up </span><span class="pun">*</span><span class="pln"> c </span><span class="pun">*</span><span class="pln"> moveSpeed </span><span class="pun">*</span><span class="pln"> </span><span class="typ">Time</span><span class="pun">.</span><span class="pln">deltaTime</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Space</span><span class="pun">.</span><span class="typ">World</span><span class="pun">);</span></code></li><li class="L7"><code class="language-c#"><span class="pln">        </span><span class="pun">}</span></code></li></ol></pre><blockquote data-anchor-id="y6w6" class="black-blockquote">
+  <p>3.死亡效果未达成(未解决) <br>
+  4.在平地冲刺不行，加了一个cnt来记录其朝向。</p>
+</blockquote><p data-anchor-id="lm9j">==========</p><div class="md-section-divider"></div><h1 data-anchor-id="t936" id="第三天的工作"><strong>第三天的工作</strong></h1><p data-anchor-id="o2gb">ps：开始偷懒，由于bug的解决我记不太清了，这里我记得就写，不记得就算了</p><div class="md-section-divider"></div><h2 data-anchor-id="kgbg" id="设计人物图片转向"><strong>设计人物图片转向</strong></h2><blockquote data-anchor-id="smok" class="black-blockquote">
+  <p>1.第一种方法，直接在sprite render 中的flipx改 <br>
+  2.设计一个sprite【】数组去获得照片。 <br>
+  3.由于懒选择第一种</p>
+</blockquote><div class="md-section-divider"></div><h2 data-anchor-id="qoz5" id="bug解决"><strong>bug解决</strong></h2><blockquote data-anchor-id="xz9g" class="black-blockquote">
+  <p>1.update和fixedupdate出现了冲突，索性全部放入了fixedupdate； <br>
+  2.当爬墙的时候其实人可以漫游，任意移动, <br>
+  锁定rigidbody的x轴，但是发现不行，而且人物竟然还可以穿墙了 <br>
+  来是transform的移动与rigidbody的contraint无关. <br>
+  换用一个ismoving来判断 <br>
+  3.经同学调试，发现在地面上冲刺只能冲一次，加了一个oncollisionstay，但是为了让人物不越界我在左边加了一个刚体，所以我加了个for遍历其接触点 <br>
+  4.在发现冲刺方向有问题，重新设计冲刺， <br>
+  5.但是冲刺后不能完成爬墙，不能在同一地点冲刺,不能爬墙是由于那个物体经过了旋转. <br>
+  6.但是在某一地图上不能实现爬墙，经过长时间的实验和查资料，是碰撞之后存在一个上滑，但是并不是，我自己也不知道怎么回事，突然3小时灵感一现,我将==1，改为&gt;0.9,成功。</p>
+</blockquote><p data-anchor-id="s31g">==========</p><div class="md-section-divider"></div><h1 data-anchor-id="eu8o" id="第四天的工作"><strong>第四天的工作</strong></h1><div class="md-section-divider"></div><h2 data-anchor-id="cei3" id="设计能量宝石"><strong>设计能量宝石</strong></h2><blockquote data-anchor-id="30zj" class="black-blockquote">
+  <p>1.将其istrigger勾上，在ontriggerenter中将character的grounded2改为true； <br>
+  2.本想销毁它，但是不会重建它，索性我就将其各项东西改为unable，然后一段时间在改为enable</p>
+</blockquote><div class="md-section-divider"></div><h2 data-anchor-id="cdh7" id="设计主界面的ui"><strong>设计主界面的ui</strong></h2><blockquote data-anchor-id="bmr8" class="black-blockquote">
+  <p>1.设计选择选项 <br>
+  2.pos1，pos2.在option下面就不可以，放在外面就可以 <br>
+  3.不知道上下键值是多少，找了很久是keycode.uparrow</p>
+</blockquote><div class="md-section-divider"></div><h2 data-anchor-id="o5w7" id="设计只能踩一会的木板">""设计只能踩一会的木板""</h2><blockquote data-anchor-id="4q7v" class="black-blockquote">
+  <p>1.除了纠结时间之外没有难度</p>
+</blockquote><p data-anchor-id="zegc">==========</p><div class="md-section-divider"></div><h1 data-anchor-id="xldf" id="第五天的工作"><strong>第五天的工作</strong></h1><div class="md-section-divider"></div><h2 data-anchor-id="vwle" id="设计下一个游戏场景"><strong>设计下一个游戏场景</strong></h2><blockquote data-anchor-id="dagt" class="black-blockquote">
+  <p>1.这个很好玩的（真的）</p>
+</blockquote><div class="md-section-divider"></div><h2 data-anchor-id="knsu" id="完成人物的冲刺变色"><strong>完成人物的冲刺变色</strong></h2><blockquote data-anchor-id="o5bw" class="black-blockquote">
+  <p>1.两种实现方式，其实同人物的转向 <br>
+  2.最后选择数组方式，因为这样可以只变头发的颜色</p>
+</blockquote><p data-anchor-id="ae1f">==========</p><div class="md-section-divider"></div><h1 data-anchor-id="o4xi" id="第六天的工作-1"><strong>第六天的工作</strong></h1><div class="md-section-divider"></div><h2 data-anchor-id="zpt8" id="写开发文档"><strong>写开发文档</strong></h2><blockquote data-anchor-id="619m" class="black-blockquote">
+  <p>1.找出以前写的txt <br>
+  2.根据txt写文档 <br>
+  3.发现markdown真是个好软件</p>
+</blockquote><div class="md-section-divider"></div><h2 data-anchor-id="vj4y" id="开始bug的调试"><strong>开始bug的调试</strong></h2><blockquote data-anchor-id="r24o" class="black-blockquote">
+  <p>1.打包成exe <br>
+  2.发现冲刺方向不对，同爬墙一样设计一个velocity=0</p>
+</blockquote><div class="md-section-divider"></div><h2 data-anchor-id="di2i" id="完成死亡效果设计"><strong>完成死亡效果设计</strong></h2><blockquote data-anchor-id="0suv" class="black-blockquote">
+  <p>1.加图片 <br>
+  2.加音效</p>
+</blockquote><div class="md-section-divider"></div><h2 data-anchor-id="v4rl" id="加背景音乐"><strong>加背景音乐</strong></h2><p data-anchor-id="9rej">1.同死亡效果</p><p data-anchor-id="axkp">==========</p><div class="md-section-divider"></div><h1 data-anchor-id="o6i5" id="第七天的工作"><strong>第七天的工作</strong></h1><div class="md-section-divider"></div><h2 data-anchor-id="uui2" id="重构代码"><strong>重构代码</strong></h2><blockquote data-anchor-id="xfcs" class="black-blockquote">
+  <p>1.我觉得我是不会这么干的</p>
+</blockquote><div class="md-section-divider"></div><h2 data-anchor-id="9yty" id="感叹一下"><strong>感叹一下</strong></h2><blockquote data-anchor-id="np62" class="black-blockquote">
+  <p>1.我真的从零基础到现在做出了个东西 <br>
+  2.实际基本效果在第三天就已经接近完成了 <br>
+  3.好累啊</p>
+</blockquote><div class="md-section-divider"></div><h2 data-anchor-id="kwcj" id="休息"><strong>休息</strong></h2><blockquote data-anchor-id="h5jp" class="black-blockquote">
+  <p>好好休息。</p>
+</blockquote></div>
+</body>
+</html>
